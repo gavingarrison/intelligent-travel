@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getGhostPosts, isGhostConfigured } from "../lib/ghost";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const posts = await getGhostPosts(3);
   const ghostReady = isGhostConfigured();

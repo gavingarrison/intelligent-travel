@@ -1,27 +1,6 @@
 import Link from "next/link";
 import { getGhostPosts, isGhostConfigured } from "../lib/ghost";
 
-const launchSlices = [
-  {
-    location: "Big Sur",
-    vertical: "Hotels",
-    href: "/locations/big-sur/hotels",
-    verdict: "Remote coastal stays where the view, silence, and service justify the trip."
-  },
-  {
-    location: "San Gabriel Valley",
-    vertical: "Boba",
-    href: "/locations/san-gabriel-valley/boba",
-    verdict: "A dense, opinionated guide to texture, tea quality, sweetness, and line-worthiness."
-  },
-  {
-    location: "Paso Robles",
-    vertical: "Wine",
-    href: "/locations/paso-robles/wine",
-    verdict: "A practical route through producers, tasting rooms, food stops, and weekend pacing."
-  }
-];
-
 export default async function HomePage() {
   const posts = await getGhostPosts(3);
   const ghostReady = isGhostConfigured();
@@ -45,33 +24,27 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section introSection">
         <div className="sectionHeader">
-          <p className="eyebrow">Phase 1</p>
-          <h2>Launch Slices</h2>
+          <p className="eyebrow">What We Cover</p>
+          <h2>Judgment for time well spent.</h2>
         </div>
-        <div className="sliceGrid">
-          {launchSlices.map((slice) => (
-            <Link className="sliceCard" href={slice.href} key={`${slice.location}-${slice.vertical}`}>
-              <p className="sliceMeta">{slice.location}</p>
-              <h3>{slice.vertical}</h3>
-              <p>{slice.verdict}</p>
-              <span className="status">View canonical records</span>
-            </Link>
-          ))}
-        </div>
+        <p className="introCopy">
+          We publish guides and editorial recommendations for hotels, food,
+          drink, routes, places, and the small decisions that shape a memorable
+          trip.
+        </p>
       </section>
 
       <section className="section">
         <div className="sectionHeader">
-          <p className="eyebrow">Ghost Publishing</p>
+          <p className="eyebrow">Editorial Guides</p>
           <h2>Latest Guides</h2>
         </div>
         {!ghostReady ? (
           <div className="notice">
-            Add <code>GHOST_CONTENT_API_URL</code> and{" "}
-            <code>GHOST_CONTENT_API_KEY</code> in Railway to display published
-            Ghost guides here.
+            Guides are being prepared. Check back soon for the first Intelligent
+            Travel recommendations.
           </div>
         ) : posts.length > 0 ? (
           <div className="guideList">

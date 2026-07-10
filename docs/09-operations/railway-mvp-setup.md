@@ -27,11 +27,19 @@ The `web` service should deploy from the GitHub repo with this root directory:
 apps/web
 ```
 
+This repo also includes a root `railway.json` so Railway can build the web app even when the service is connected from the repository root.
+
 The service commands are:
 
 ```text
-npm install
-npm run build
+cd apps/web && npm ci && npm run build
+cd apps/web && npm run start
+```
+
+If Railway is configured with `apps/web` as the service root, the equivalent commands are:
+
+```text
+npm ci && npm run build
 npm run start
 ```
 

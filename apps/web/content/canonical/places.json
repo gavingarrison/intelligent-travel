@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "post-ranch-inn",
+    "name": "Post Ranch Inn",
+    "location": "Big Sur",
+    "vertical": "Hotels",
+    "category": "Hotel",
+    "recommendationPrimitive": "Worth the Splurge",
+    "verdict": "A draft canonical record for the kind of high-confidence place card this guide should render.",
+    "rationale": "Use this record to capture the editorial reason a place belongs in a guide, separated from the Ghost prose around it.",
+    "caveats": "Needs editorial review before this should be treated as a final public recommendation.",
+    "bestFor": ["Special occasion", "Design-forward stay", "Coastal views"],
+    "notIdealFor": ["Budget trips", "Last-minute planning"],
+    "confidence": "Draft",
+    "verificationStatus": "Needs editorial review",
+    "lastReviewed": null,
+    "evidence": ["Seeded as an MVP content structure example."]
+  },
+  {
+    "slug": "sgv-boba-placeholder",
+    "name": "SGV Boba Place",
+    "location": "San Gabriel Valley",
+    "vertical": "Boba",
+    "category": "Boba Shop",
+    "recommendationPrimitive": "Best Overall",
+    "verdict": "A placeholder record for the first San Gabriel Valley boba guide.",
+    "rationale": "Replace this with a reviewed shop once tasting notes, texture, tea quality, line-worthiness, and sweetness controls have been evaluated.",
+    "caveats": "Placeholder only. Do not treat as a published recommendation.",
+    "bestFor": ["Texture testing", "Tea quality notes", "Sweetness calibration"],
+    "notIdealFor": ["Published recommendations"],
+    "confidence": "Draft",
+    "verificationStatus": "Needs editorial review",
+    "lastReviewed": null,
+    "evidence": ["Seeded as an MVP content structure example."]
+  },
+  {
+    "slug": "paso-wine-placeholder",
+    "name": "Paso Robles Wine Stop",
+    "location": "Paso Robles",
+    "vertical": "Wine",
+    "category": "Winery",
+    "recommendationPrimitive": "Weekend Plan",
+    "verdict": "A placeholder record for the first Paso Robles wine guide.",
+    "rationale": "Replace this with a reviewed producer or tasting room once the route, pacing, reservation needs, and food pairing context are known.",
+    "caveats": "Placeholder only. Do not treat as a published recommendation.",
+    "bestFor": ["Route planning", "Weekend pacing", "Producer notes"],
+    "notIdealFor": ["Published recommendations"],
+    "confidence": "Draft",
+    "verificationStatus": "Needs editorial review",
+    "lastReviewed": null,
+    "evidence": ["Seeded as an MVP content structure example."]
+  }
+]
+

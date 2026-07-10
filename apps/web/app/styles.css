@@ -161,11 +161,13 @@ h3 {
 }
 
 .sliceCard {
+  display: block;
   min-height: 245px;
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
+  text-decoration: none;
 }
 
 .sliceCard p {
@@ -300,6 +302,58 @@ code {
   color: var(--muted);
 }
 
+.canonicalStack {
+  display: grid;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.canonicalCard {
+  margin-top: 32px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.canonicalCardHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.canonicalVerdict {
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.canonicalDetails {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+}
+
+.canonicalDetails div {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.canonicalDetails dt {
+  color: var(--forest);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.canonicalDetails dd {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .centered {
   display: grid;
   min-height: 100vh;
@@ -321,9 +375,9 @@ code {
   }
 
   .sectionHeader,
-  .guideLink {
+  .guideLink,
+  .canonicalCardHeader {
     align-items: start;
     flex-direction: column;
   }
 }
-

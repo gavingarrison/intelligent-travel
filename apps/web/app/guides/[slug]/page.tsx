@@ -1,15 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getCanonicalPlace } from "../../../lib/canonical";
 import { getGhostPostBySlug } from "../../../lib/ghost";
 
 type GuidePageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export default async function GuidePage({ params }: GuidePageProps) {
-  const post = await getGhostPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getGhostPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -38,8 +40,42 @@ function renderCanonicalShortcodes(html: string) {
     /\{\{canonical-place-card slug=&quot;([^&]+)&quot;\}\}|\{\{canonical-place-card slug="([^"]+)"\}\}/g,
     (_, encodedSlug: string | undefined, plainSlug: string | undefined) => {
       const slug = encodedSlug ?? plainSlug;
-      return `<aside class="canonicalPlaceholder"><span>Canonical place card</span><strong>${slug}</strong><p>Structured recommendation data will render here from the canonical database.</p></aside>`;
+      if (!slug) {
+        return "";
+      }
+
+      const place = getCanonicalPlace(slug);
+
+      if (!place) {
+        return `<aside class="canonicalPlaceholder"><span>Missing canonical place card</span><strong>${escapeHtml(slug)}</strong><p>Add this slug to <code>apps/web/content/canonical/places.json</code>.</p></aside>`;
+      }
+
+      return `<article class="canonicalCard"><div class="canonicalCardHeader"><div><p class="sliceMeta">${escapeHtml(
+        `${place.location} / ${place.vertical}`
+      )}</p><h3>${escapeHtml(place.name)}</h3></div><span class="status">${escapeHtml(
+        place.confidence
+      )}</span></div><p class="canonicalVerdict">${escapeHtml(
+        place.verdict
+      )}</p><dl class="canonicalDetails"><div><dt>Rationale</dt><dd>${escapeHtml(
+        place.rationale
+      )}</dd></div><div><dt>Caveats</dt><dd>${escapeHtml(
+        place.caveats
+      )}</dd></div><div><dt>Best For</dt><dd>${escapeHtml(
+        place.bestFor.join(", ")
+      )}</dd></div><div><dt>Not Ideal For</dt><dd>${escapeHtml(
+        place.notIdealFor.join(", ")
+      )}</dd></div><div><dt>Verification</dt><dd>${escapeHtml(
+        place.verificationStatus
+      )}</dd></div></dl></article>`;
     }
   );
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}

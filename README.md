@@ -46,6 +46,7 @@ Locations are the organizing spine. Verticals are the editorial lenses.
 
 - [Thread Handoff Export](./docs/THREAD_EXPORT.md)
 - [Railway MVP Setup](./docs/09-operations/railway-mvp-setup.md)
+- [Where To Add Content](./docs/10-content/where-to-add-content.md)
 - [Brand Operating Brief](./docs/brand-operating-brief.md)
 - [Product Architecture](./docs/product-architecture.md)
 - [Editorial Data Model](./docs/editorial-data-model.md)

@@ -5,16 +5,19 @@ const launchSlices = [
   {
     location: "Big Sur",
     vertical: "Hotels",
+    href: "/locations/big-sur/hotels",
     verdict: "Remote coastal stays where the view, silence, and service justify the trip."
   },
   {
     location: "San Gabriel Valley",
     vertical: "Boba",
+    href: "/locations/san-gabriel-valley/boba",
     verdict: "A dense, opinionated guide to texture, tea quality, sweetness, and line-worthiness."
   },
   {
     location: "Paso Robles",
     vertical: "Wine",
+    href: "/locations/paso-robles/wine",
     verdict: "A practical route through producers, tasting rooms, food stops, and weekend pacing."
   }
 ];
@@ -49,12 +52,12 @@ export default async function HomePage() {
         </div>
         <div className="sliceGrid">
           {launchSlices.map((slice) => (
-            <article className="sliceCard" key={`${slice.location}-${slice.vertical}`}>
+            <Link className="sliceCard" href={slice.href} key={`${slice.location}-${slice.vertical}`}>
               <p className="sliceMeta">{slice.location}</p>
               <h3>{slice.vertical}</h3>
               <p>{slice.verdict}</p>
-              <span className="status">Structured data pending</span>
-            </article>
+              <span className="status">View canonical records</span>
+            </Link>
           ))}
         </div>
       </section>
@@ -88,4 +91,3 @@ export default async function HomePage() {
     </main>
   );
 }
-

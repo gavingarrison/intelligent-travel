@@ -36,7 +36,7 @@ export default async function HomePage() {
           <div className="mapPin pinThree" />
         </div>
         <div className="heroCopy">
-          <p className="eyebrow">Editorial Intelligence Platform</p>
+          <p className="eyebrow">Leisure Editorial Intelligence</p>
           <h1>Intelligent Travel</h1>
           <p className="lede">
             Trusted judgment for places, routes, stays, meals, and the rare hours
